@@ -451,6 +451,33 @@
     return self.gutterView.backgroundColor;
 }
 
+/*
+ * @property gutterDividerColour
+ */
+- (void)setGutterDividerColour:(NSColor *)gutterDividerColour
+{
+    self.gutterView.dividerColor = gutterDividerColour;
+    [self mgs_propagateValue:gutterDividerColour forBinding:NSStringFromSelector(@selector(gutterDividerColour))];
+}
+
+- (NSColor *)gutterDividerColour
+{
+    return self.gutterView.dividerColor;
+}
+
+/*
+ * @property gutterDividerDashed
+ */
+- (void)setGutterDividerDashed:(BOOL)gutterDividerDashed
+{
+    self.gutterView.dividerDashed = gutterDividerDashed;
+    [self mgs_propagateValue:@(gutterDividerDashed) forBinding:NSStringFromSelector(@selector(gutterDividerDashed))];
+}
+
+- (BOOL)gutterDividerDashed
+{
+    return self.gutterView.dividerDashed;
+}
 
 #pragma mark - Showing Syntax Errors
 

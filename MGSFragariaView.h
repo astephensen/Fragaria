@@ -203,7 +203,10 @@
 @property (nonatomic, assign, nonnull) NSColor *gutterTextColour;
 /** Specifies the background colour of the gutter view */
 @property (nonatomic, assign, nonnull) NSColor *gutterBackgroundColour;
-
+/** Specifies the divider colour of the gutter view */
+@property (nonatomic, assign, nonnull) NSColor *gutterDividerColour;
+/** Specifies if the gutter divider should have a dashed line. */
+@property (nonatomic, assign) BOOL gutterDividerDashed;
 
 #pragma mark - Showing Syntax Errors
 /// @name Showing Syntax Errors

@@ -85,6 +85,7 @@ typedef enum {
         
         _showsLineNumbers = YES;
         _backgroundColor = [NSColor colorWithCalibratedWhite:0.94 alpha:1.0];
+        _dividerDashed = YES;
         _minimumWidth = 40;
         
         _font = [NSFont fontWithName:@"Menlo" size:11];
@@ -435,8 +436,12 @@ typedef enum {
     
     [self.backgroundColor set];
     NSRectFill(bounds);
-    
-    borderColor = [self.backgroundColor blendedColorWithFraction:.5 ofColor:self.clientView.backgroundColor];
+
+    if (self.dividerColor) {
+        borderColor = self.dividerColor;
+    } else {
+        borderColor = [self.backgroundColor blendedColorWithFraction:.5 ofColor:self.clientView.backgroundColor];
+    }
     dotColor = [borderColor blendedColorWithFraction:(2.0*2.0/3.0)-.94 ofColor:[NSColor blackColor]];
     
     dottedLine = [NSBezierPath bezierPath];
@@ -445,10 +450,12 @@ typedef enum {
     
     [borderColor set];
     [dottedLine stroke];
-    
-    [dotColor set];
-    [dottedLine setLineDash:dash count:2 phase:visibleRect.origin.y];
-    [dottedLine stroke];
+
+    if (self.dividerDashed) {
+        [dotColor set];
+        [dottedLine setLineDash:dash count:2 phase:visibleRect.origin.y];
+        [dottedLine stroke];
+    }
 }
 
 

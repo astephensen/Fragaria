@@ -67,6 +67,10 @@
 @property (nonatomic) NSColor *textColor;
 /** Text editor background color. */
 @property (nonatomic) NSColor *backgroundColor;
+/** Divider colour. */
+@property (nonatomic) NSColor *dividerColor;
+/** Divider dashed. */
+@property (nonatomic, assign) BOOL dividerDashed;
 /** Minimum width of the gutter. */
 @property (nonatomic) CGFloat minimumWidth;
 
