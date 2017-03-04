@@ -19,6 +19,7 @@
 #import "MGSSyntaxController.h"
 #import "NSTextStorage+Fragaria.h"
 #import "NSString+Fragaria.h"
+#import "MGSSyntaxDefinition.h"
 
 #import "MGSSyntaxErrorController.h"
 #import "SMLSyntaxError.h"
@@ -206,6 +207,19 @@
 	return self.textView.syntaxColouring.syntaxDefinitionName;
 }
 
+/*
+ * @property syntaxDefinitionFileName
+ */
+- (void)setSyntaxDefinitionDictionary:(NSDictionary *)syntaxDefinitionDictionary
+{
+    MGSSyntaxDefinition *syntaxDefinition = [[MGSSyntaxDefinition alloc] initFromSyntaxDictionary:syntaxDefinitionDictionary name:@"custom"];
+    self.textView.syntaxColouring.syntaxDefinition = syntaxDefinition;
+}
+
+- (NSDictionary *)syntaxDefinitionDictionary
+{
+    return self.textView.syntaxColouring.syntaxDefinition.syntaxDictionary;
+}
 
 /*
  * @property syntaxColouringDelegate

@@ -144,6 +144,8 @@
 
 /** Specifies the current syntax definition name.*/
 @property (nonatomic, assign, nonnull) NSString *syntaxDefinitionName;
+/** Specifies a dictionary for the syntax definition. */
+@property (nonatomic, assign, nonnull) NSDictionary *syntaxDefinitionDictionary;
 /** The syntax colouring delegate for this instance of Fragaria. The syntax
  * colouring delegate gets notified of the start and end of each colouring pass
  * so that it can modify the default syntax colouring provided by Fragaria. */
